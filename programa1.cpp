@@ -11,6 +11,7 @@ struct Persona {
     float peso;
     float altura;
     char genero;
+    int numeroRegistro;  // Asegúrate de incluir el campo numeroRegistro
 };
 
 int main() {
@@ -48,6 +49,8 @@ int main() {
         cout << "Genero (m/f): ";
         cin >> persona.genero;
 
+        persona.numeroRegistro = i;  // Asignar numero de registro
+
         if (persona.genero == 'm') {
             cout << "Registrado como Masculino." << endl;
         } else if (persona.genero == 'f') {
@@ -59,7 +62,7 @@ int main() {
         archivo.write(reinterpret_cast<char*>(&persona), sizeof(Persona));
     }
 
-    cout << "Tamaño de cada registro: " << sizeof(Persona) << " bytes." << endl;
+    cout << "Espacio de cada registro: " << sizeof(Persona) << " bytes." << endl;
     archivo.close();
 
     return 0;
